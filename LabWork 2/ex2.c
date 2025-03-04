@@ -16,3 +16,31 @@ int main() {
         printf("Three numbers are equal\n");
     }
 }
+
+//another way to solve this problem
+#include<stdio.h>
+
+int main() {
+    float a, b, c;
+    float numbers[3];
+    float max;
+
+    printf("Type three values a, b, c :");
+    scanf("%f %f %f", &a, &b, &c);
+    numbers[0] = a;
+    numbers[1] = b;
+    numbers[2] = c;
+
+    for (int i = 0; i < 3; i++) {
+        if ( i == 0 ) {
+           max = numbers[i];
+        }
+        else {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+    }
+    printf("The maximum value is : %f", max);
+    return 0;
+}
