@@ -1,0 +1,2 @@
+ new_str[j] = '\0';
+malloc() in C
