@@ -32,13 +32,13 @@ int insertion(int n[]){
     printf("\n");
 
     for (int i = 1; i < 7; i++) {
-        for (int j = i; j > 0; j--) {
-            if (n[j] < n[j-1]) {
-                int temp = n[j];
-                n[j] = n[j-1];
-                n[j-1] = temp;
-            }
+        int key = n[i];
+        int j = i - 1;
+        while (j >= 0 && n[j] > key) {
+            n[j + 1] = n[j];
+            j--;
         }
+        n[j + 1] = key;
     }
 
     printf("After ");
@@ -59,10 +59,13 @@ int selection (int n []) {
         int min = i;
         for (int j = i+1; j < 7; j++) {
             if (n[j] < n[min]) {
-                int temp = n[j];
-                n[j] = n[min];
-                n[min] = temp;
+                min = j;
             }
+        }
+        if (min != i) {
+            int temp = n[min];
+            n[min] = n[i];
+            n[i] = temp;
         }
     }
 
@@ -71,7 +74,6 @@ int selection (int n []) {
         printf("%d ", n[i]);
     }
 }
-
 int main () {
     int n1[7] = {2, 8, 5, 3, 9, 4, 1};
     int n2[7] = {2, 8, 5, 3, 9, 4, 1};
